@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <trees>
+     <tree path="/jie-admin" title="启动模块" extension="" presentableText="" tooltipTitle="" icon="" textColor=""
+           backgroundColor=""/>
+     <tree path="/jie-common" title="通用模块"/>
+     <tree path="/jie-framework" title="业务核心模块"/>
+     <tree path="/jie-generator" title="代码生成模块" extension="" presentableText="" tooltipTitle=""/>
+     <tree path="/jie-quartz" title="定时模块"/>
+     <tree path="/jie-system" title="系统业务模块"/>
+     <tree path="/jie-iot" title="设备服务业务"/>
+ </trees>
