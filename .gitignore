@@ -29,3 +29,9 @@ unpackage/
 *.mkv
 *.mp3
 *.wav
+
+# Local runtime configuration
+application-local.yml
+application-local.yaml
+data/
+uploadPath/

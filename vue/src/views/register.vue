@@ -79,7 +79,7 @@
 
 <style scoped>
 .login-container {
-  background-image: url("D:/IDEA WorkPlace/JieSCD/vue/src/assets/images/a1.jpg");
+  background-image: url("~@/assets/images/a1.jpg");
   background-size: cover;
   background-position: center;
   /* Other styles for the container */

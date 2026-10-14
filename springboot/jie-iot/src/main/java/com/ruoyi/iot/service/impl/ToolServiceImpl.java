@@ -360,10 +360,7 @@ public class ToolServiceImpl implements IToolService
      */
     @Override
     public ResponseEntity returnUnauthorized(MqttAuthenticationModel mqttModel, String message) {
-        log.warn("认证失败：" + message
-                + "\nclientid:" + mqttModel.getClientId()
-                + "\nusername:" + mqttModel.getUserName()
-                + "\npassword:" + mqttModel.getPassword());
+        log.warn("MQTT authentication failed");
         return ResponseEntity.status(401).body("Unauthorized");
     }
 }

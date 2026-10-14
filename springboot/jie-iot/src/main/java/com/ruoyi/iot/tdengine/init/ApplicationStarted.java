@@ -99,7 +99,7 @@ public class ApplicationStarted implements ApplicationRunner {
             int endIndex = jdbcUrl.indexOf('?');
             String newJdbcUrl = jdbcUrl.substring(0,startIndex);
             newJdbcUrl= newJdbcUrl+jdbcUrl.substring(endIndex);
-            System.out.println(newJdbcUrl);
+            LOGGER.debug("Creating configured TDengine database");
 
             Properties connProps = new Properties();
             connProps.setProperty(TSDBDriver.PROPERTY_KEY_CHARSET, "UTF-8");

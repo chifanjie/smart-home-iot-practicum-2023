@@ -37,7 +37,7 @@
                             </div>
                         </el-form-item>
                         <el-checkbox v-model="loginForm.rememberMe"
-                            style="margin:0px 0px 25px 0px;color:#000;">记住密码</el-checkbox>
+                            style="margin:0px 0px 25px 0px;color:#000;">记住账号</el-checkbox>
                         <el-form-item style="width:100%;">
                             <el-button v-if="!bindAccount" :loading="loading" type="primary" style="width:100%;"
                                 @click.native.prevent="handleLogin">
@@ -88,7 +88,7 @@
 
 <style scoped>
 .login-container {
-  background-image: url("D:/IDEA WorkPlace/JieSCD/vue/src/assets/images/a1.jpg");
+  background-image: url("~@/assets/images/a1.jpg");
   background-size: cover;
   background-position: center;
   /* Other styles for the container */
@@ -104,10 +104,6 @@ import {
     getErrorMsg
 } from "@/api/login";
 import Cookies from "js-cookie";
-import {
-    encrypt,
-    decrypt
-} from '@/utils/jsencrypt'
 
 export default {
     name: "Login",
@@ -226,11 +222,11 @@ export default {
         },
         getCookie() {
             const username = Cookies.get("username");
-            const password = Cookies.get("password");
+            Cookies.remove("password");
             const rememberMe = Cookies.get('rememberMe')
             this.loginForm = {
                 username: username === undefined ? this.loginForm.username : username,
-                password: password === undefined ? this.loginForm.password : decrypt(password),
+                password: "",
                 rememberMe: rememberMe === undefined ? false : Boolean(rememberMe)
             };
         },
@@ -256,9 +252,6 @@ export default {
                         Cookies.set("username", this.loginForm.username, {
                             expires: 30
                         });
-                        Cookies.set("password", encrypt(this.loginForm.password), {
-                            expires: 30
-                        });
                         Cookies.set('rememberMe', this.loginForm.rememberMe, {
                             expires: 30
                         });
@@ -267,7 +260,7 @@ export default {
                         Cookies.remove("password");
                         Cookies.remove('rememberMe');
                     }
-                    console.log(this.loginForm)
+                    Cookies.remove("password");
                     this.$store.dispatch("Login", this.loginForm).then(() => {
                         this.$router.push({
                             path: this.redirect || "/"
